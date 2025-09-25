@@ -1,47 +1,48 @@
-# 🚀 Automated Static Website Deployment with AWS CodePipeline
+# AWS Static Website Project
 
-This project demonstrates how to **automate the deployment of a static website** using the AWS Console (no CLI required).  
-Every time code is updated in the repository, AWS CodePipeline automatically redeploys the site to an Amazon S3 bucket.
-
----
-
-## 📌 Overview
-- **Source:** GitHub (or AWS CodeCommit) repository  
-- **Deploy Target:** Amazon S3 bucket with static website hosting enabled  
-- **CI/CD Service:** AWS CodePipeline  
-- **Trigger:** Commit to the chosen repository branch  
+This project demonstrates how to build and host a **static website** on GitHub using the **GitHub web interface (GUI)**.  
+It’s a simple starter project, but can be expanded with CSS, JavaScript, and images.
 
 ---
 
-## 🛠️ Setup (AWS Console)
+## 📂 Project Structure
 
-### 1. Create Repository
-- **If using GitHub:**
-  1. Create a new repository in GitHub.  
-  2. Upload your `index.html` file through the GitHub web interface (*Add file → Upload files*).  
-
-- **If using AWS CodeCommit:**
-  1. In the AWS Console, go to **CodeCommit → Repositories → Create repository**.  
-  2. Upload your `index.html` file via the CodeCommit console (*Add file → Upload file*).  
+Currently, the repository contains:
 
 ---
 
-### 2. Create and Configure S3 Bucket
-1. In AWS Console, open **S3 → Create bucket**.  
-2. Enter a unique name (e.g., `my-static-site-demo-123`).  
-3. Uncheck **Block all public access** (for demo purposes).  
-4. Once created, open the bucket → **Properties → Static website hosting** → Enable → set `index.html` as the root.  
-5. Go to **Permissions → Bucket policy**, and paste the following (replace `BUCKET_NAME` with your bucket name):  
+## 🚀 Steps to Upload Files (GitHub GUI)
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [{
-    "Sid": "PublicReadGetObject",
-    "Effect": "Allow",
-    "Principal": "*",
-    "Action": ["s3:GetObject"],
-    "Resource": ["arn:aws:s3:::BUCKET_NAME/*"]
-  }]
-}
-http://my-static-site-demo-123.s3-website-us-east-1.amazonaws.com
+1. Go to your repository on GitHub.  
+2. Click **Add file → Upload files**.  
+3. Drag and drop your file(s) (HTML, CSS, JS, images, etc.).  
+4. Scroll down and click **Commit changes**.  
+
+---
+
+## 🌐 Viewing the Website with GitHub Pages
+
+1. Go to **Settings** in your repo.  
+2. Scroll down to **Pages**.  
+3. Under **Source**, select **Deploy from a branch**.  
+4. Choose `main` branch → `/root`.  
+5. Click **Save**.  
+
+After a few minutes, GitHub Pages will give you a public URL where your site is live.  
+
+---
+
+## 🛠️ Future Improvements
+- Add a `style.css` file for better design.  
+- Add a `script.js` file for interactivity.  
+- Create an `/images` folder for logos, icons, or photos.  
+
+---
+
+## 📖 Learning Resources
+- [GitHub Docs: Managing Files in a Repo](https://docs.github.com/en/repositories/working-with-files/managing-files)  
+- [GitHub Pages Setup Guide](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)  
+- [Video: Host a Website on GitHub Pages](https://www.youtube.com/watch?v=QyFcl_Fba-k)  
+
+---
+✨ This project is a starting point for practicing static website hosting and version control with GitHub.
